@@ -8,8 +8,7 @@ from export import esporta_csv
 lista_capi = []
 lista_componenti = []
 
-def menu_analisi():
-    """Sottomenu dedicato alle analisi, richiamato dal menu principale."""
+def menu_analisi(): # Sottomenu dedicato alle analisi, richiamato dal menu principale.
     print("\n--- ANALISI ---")
     print("1. Analizza tutti i capi")
     print("2. Analizza solo per tipo di capo")
