@@ -9,7 +9,7 @@ percorso = os.getcwd()
 def esporta_csv(filepath = percorso + "/vendite.csv"):
 
     if not vendite:
-        print("/!\ Nessun dato da esportare\n(i) Genera prima le vendite.\n")
+        print("/!\\ Nessun dato da esportare\n(i) Genera prima le vendite.\n")
         return
     
     # Colonne del CSV
