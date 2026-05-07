@@ -36,9 +36,9 @@ def esporta_csv(filepath = percorso + "/vendite.csv"):
                 "famiglia":  v["famiglia"],
                 "prezzo":    v["prezzo"],
                 "quantita":  v["quantita"],
-                """calcolato durante l'export poichè è un valore derivato
-                   e se il prezzo fosse stato modificato via CRUD il dato 
-                   pre-calcolato sarebbe inconsistente."""
+                 # calcolato durante l'export poichè è un valore derivato
+                 # e se il prezzo fosse stato modificato via CRUD il dato 
+                 # pre-calcolato sarebbe inconsistente.
                 "fatturato": round(v["prezzo"] * v["quantita"], 2)
             })
     
