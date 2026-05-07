@@ -5,7 +5,7 @@ from models import Giacca, Pantalone, Gilet, Cravatta, Papillon, Pochette
 # funzione di supporto che cerca un elemento nella lista tramite il suo codice univoco
 # riceve due parametri: la lista in cui cercare e il codice da trovare
 def cerca_per_codice(lista, codice):
-    # cicla ogni elemento della lista uno per uno
+    # cicla ogni elemento della lista uno per uno e confronta i codici
     for elemento in lista:
         # confronta il codice dell'elemento con quello cercato
         if elemento.codice == codice:
@@ -25,8 +25,8 @@ def crea_capo(lista_capi):
     # input() restituisce sempre una stringa, .strip() rimuove spazi accidentali
     scelta = input("Tipo: ").strip()
 
-    # raccoglie gli attributi comuni a tutta la prima famiglia tramite input utente
-    codice  = input("Codice: ").strip()
+# Seleziona il tipo di oggetto e raccoglie gli attributi universali necessari a ogni capo. In questo caso prima famiglia "CAPI"
+# I dati comuni vengono puliti (.strip) per spazi vuoti e convertiti (float) prima di gestire le specifiche.    
     nome    = input("Nome: ").strip()
     tessuto = input("Tessuto: ").strip()
     colore  = input("Colore: ").strip()
@@ -62,7 +62,7 @@ def crea_capo(lista_capi):
 
 
 # funzione che chiede i dati all'utente e crea un nuovo componente di finitura
-# struttura identica a crea_capo ma per la seconda famiglia di oggetti
+# struttura identica a crea_capo ma per la seconda famiglia di oggetti "COMPONENTI"
 def crea_componente(lista_componenti):
     print("\n--- Crea componente di finitura ---")
     print("1. Cravatta")
