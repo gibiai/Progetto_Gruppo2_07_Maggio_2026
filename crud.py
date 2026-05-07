@@ -1,3 +1,6 @@
+# gestisce le operazioni manuali sui capi e sui compomenti di finitura.
+# Permette all'utente di creare nuovi oggetti inserendoli
+# 
 # importiamo tutte le classi da models.py per poter istanziare gli oggetti
 from models import Giacca, Pantalone, Gilet, Cravatta, Papillon, Pochette
 
