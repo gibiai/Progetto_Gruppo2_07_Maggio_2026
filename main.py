@@ -72,8 +72,10 @@ def menu():
 
         if scelta == "1":
             crea_capo(lista_capi)                                # aggiunge un nuovo capo scelto dall'utente
+            genera_dati(lista_capi, lista_componenti)
         elif scelta == "2":
             crea_componente(lista_componenti)                    # aggiunge un nuovo componente scelto dall'utente
+            genera_dati(lista_capi, lista_componenti)
         elif scelta == "3":
             modifica_capo(lista_capi, lista_componenti)          # modifica un capo esistente tramite codice
         elif scelta == "4":
