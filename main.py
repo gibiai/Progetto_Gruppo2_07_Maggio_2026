@@ -1,7 +1,7 @@
 from models import *
 from crud import crea_capo, modifica_capo, elimina_capo
 from generatore import genera_dati
-from analytics import analizza_tutti, analizza_per_tipo, analizza_per_tipo_e_personalizzazione
+from analytics import analizza_tutti, analizza_per_tipo, analizza_per_tipo_e_personalizzazione, analizza_attributi
 from export import esporta_csv
 
 # liste condivise tra tutti i moduli, passate come argomento alle funzioni
@@ -9,22 +9,36 @@ lista_capi = []
 lista_componenti = []
 
 def menu_analisi():
+    """Sottomenu dedicato alle analisi, richiamato dal menu principale."""
     print("\n--- ANALISI ---")
     print("1. Analizza tutti i capi")
     print("2. Analizza solo per tipo di capo")
     print("3. Analizza per tipo e personalizzazione")
+    print("4. Analizza attributi (colori, tessuti, taglie)")
     print("0. Torna indietro")
 
     scelta = input("\nScelta: ").strip()
 
     if scelta == "1":
-        analizza_tutti(lista_capi)
+        analizza_tutti()
+
     elif scelta == "2":
-        analizza_per_tipo(lista_capi)
+        print("\nTipi disponibili: Giacca, Pantalone, Gilet, Cravatta, Papillon, Pochette")
+        tipo = input("Inserisci tipo: ").strip()
+        analizza_per_tipo(tipo)
+
     elif scelta == "3":
-        analizza_per_tipo_e_personalizzazione(lista_capi)
+        print("\nTipi disponibili: Giacca, Pantalone, Gilet, Cravatta, Papillon, Pochette")
+        tipo  = input("Inserisci tipo: ").strip()
+        valore = input("Inserisci valore personalizzazione: ").strip()
+        analizza_per_tipo_e_personalizzazione(lista_capi, lista_componenti, tipo, valore)
+
+    elif scelta == "4":
+        analizza_attributi(lista_capi, lista_componenti)
+
     elif scelta == "0":
         return
+
     else:
         print("Scelta non valida.")
 
