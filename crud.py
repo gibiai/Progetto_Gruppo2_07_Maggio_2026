@@ -31,6 +31,7 @@ def crea_capo(lista_capi):
 
 # Seleziona il tipo di oggetto e raccoglie gli attributi universali necessari a ogni capo. In questo caso prima famiglia "CAPI"
 # I dati comuni vengono puliti (.strip) per spazi vuoti e convertiti (float) prima di gestire le specifiche.    
+    codice  = input("Codice: ").strip() 
     nome    = input("Nome: ").strip()
     tessuto = input("Tessuto: ").strip()
     colore  = input("Colore: ").strip()
