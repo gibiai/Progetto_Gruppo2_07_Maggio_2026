@@ -10,6 +10,7 @@ Progetto sviluppato in gruppo per applicare i principi della Programmazione Orie
 - Gabriele De Carlo
 
 ---
+![!! Traccia Esercizio !!](proj_traccia.jpg)
 
 ## 🎯 Obiettivi del Progetto
 
@@ -19,6 +20,7 @@ Progetto sviluppato in gruppo per applicare i principi della Programmazione Orie
 - Simulare vendite casuali realistiche e analizzarne i dati
 - Utilizzare il **polimorfismo** tramite `.descrivi()` e `.get_tipo()` su oggetti di tipo diverso
 - Esportare i dati su file CSV per la persistenza
+- Visualizzare i dati tramite grafici con `matplotlib`
 
 ---
 
@@ -30,6 +32,7 @@ Progetto sviluppato in gruppo per applicare i principi della Programmazione Orie
 - Liste e gestione oggetti in memoria
 - Modulo `csv` per l'esportazione
 - Modulo `random` per la generazione dati
+- `matplotlib` per la visualizzazione grafica
 
 ---
 
@@ -40,13 +43,14 @@ Progetto sviluppato in gruppo per applicare i principi della Programmazione Orie
 - `generatore.py` — Simulazione vendite casuali (Gabriele)
 - `analytics.py` — Analisi e statistiche sulle vendite (Manuel)
 - `export.py` — Esportazione CSV (Manuel)
+- `visualizza.py` — Grafici con matplotlib (Davide - Manuel - Gabriele)
 - `main.py` — Entry point e menu principale (Davide)
 
 ---
 
 ## ⚙️ Setup
 
-- Nessuna dipendenza esterna necessaria
+- Installare matplotlib: `pip install matplotlib`
 - Eseguire con `python3 main.py`
 
 ---
@@ -70,6 +74,7 @@ Progetto sviluppato in gruppo per applicare i principi della Programmazione Orie
 - `generatore.py` — `genera_dati()` con banche dati di valori realistici e lista globale `vendite[]`
 - `analytics.py` — `analizza_tutti()`, `analizza_per_tipo()`, `analizza_per_tipo_e_personalizzazione()`, `analizza_attributi()`
 - `export.py` — `esporta_csv()` con calcolo fatturato al momento della scrittura
+- `visualizza.py` — `grafico_fatturato_per_tipo()`, `grafico_distribuzione_prezzi()`
 
 ---
 
@@ -80,6 +85,7 @@ Progetto sviluppato in gruppo per applicare i principi della Programmazione Orie
 3. Generazione vendite casuali con `genera_dati()` — usa i capi già inseriti come base
 4. Analisi delle vendite tramite sottomenu dedicato (tutti, per tipo, per personalizzazione)
 5. Esportazione del registro vendite su `vendite.csv`
+6. Visualizzazione grafica tramite sottomenu dedicato *(appendice)*
 
 ---
 
@@ -90,6 +96,14 @@ Progetto sviluppato in gruppo per applicare i principi della Programmazione Orie
 3. **Polimorfismo** — `.descrivi()` e `.get_tipo()` overridati in ogni sottoclasse producono output diversi sullo stesso ciclo `for`
 4. **Astrazione** — `CapoPrincipale` e `ComponenteDiFinitura` sono classi astratte (`ABC`) che non si possono istanziare direttamente
 5. **Modularità** — ogni file ha un compito specifico e comunica con gli altri tramite import
+6. **Visualizzazione** — `matplotlib` per rappresentare graficamente fatturato e distribuzione prezzi *(appendice)*
+
+---
+
+## 📊 Visualizza - Esempi di Output
+
+![Fatturato per tipo](fatturato_per_tipo.png)
+![Distribuzione prezzi](distribuzione_prezzi.png)
 
 ---
 
