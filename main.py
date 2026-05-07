@@ -3,6 +3,7 @@ from crud import crea_capo, crea_componente, modifica_capo, elimina_capo, visual
 from generatore import genera_dati
 from analytics import analizza_tutti, analizza_per_tipo, analizza_per_tipo_e_personalizzazione, analizza_attributi
 from export import esporta_csv
+from visualizza import grafico_fatturato_per_tipo, grafico_distribuzione_prezzi
 
 # liste condivise tra tutti i moduli, passate come argomento alle funzioni
 lista_capi = []
@@ -35,12 +36,28 @@ def menu_analisi(): # Sottomenu dedicato alle analisi, richiamato dal menu princ
     else:
         print("Scelta non valida.")
 
+def menu_visualizzazione(): # Sottomenu dedicato ai grafici, richiamato dal menu principale.
+    print("\n--- VISUALIZZAZIONE ---")
+    print("1. Grafico fatturato per tipo")
+    print("2. Istogramma distribuzione prezzi")
+    print("0. Torna indietro")
+    scelta = input("\nScelta: ").strip()
+
+    if scelta == "1":
+        grafico_fatturato_per_tipo()       # grafico a barre: fatturato per ogni tipo di capo
+    elif scelta == "2":
+        grafico_distribuzione_prezzi()     # istogramma: distribuzione dei prezzi delle vendite
+    elif scelta == "0":
+        return
+    else:
+        print("Scelta non valida.")
+
 def menu():
     genera_dati(lista_capi, lista_componenti)
     print("Dati iniziali generati automaticamente.")
 
     while True:
-        print("\n== SARTORIA ELEGANTE ==") # menu sartoria in cui si può creare un capo, analizzarlo ed esportarlo
+        print("\n== SARTORIA ELEGANTE ==")
         print("1. Crea capo")
         print("2. Crea componente")
         print("3. Modifica capo")
@@ -49,6 +66,7 @@ def menu():
         print("6. Genera nuovi dati")
         print("7. Analisi")
         print("8. Esporta CSV")
+        print("9. Visualizzazione grafici")
         print("0. Esci")
         scelta = input("\nScelta: ").strip()
 
@@ -68,6 +86,8 @@ def menu():
             menu_analisi()                                       # entra nel sottomenu analisi
         elif scelta == "8":
             esporta_csv()                                        # scrive le vendite su file vendite.csv
+        elif scelta == "9":
+            menu_visualizzazione()                               # entra nel sottomenu grafici
         elif scelta == "0":
             print("Arrivederci!")
             break
