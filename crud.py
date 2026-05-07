@@ -1,6 +1,7 @@
 # gestisce le operazioni manuali sui capi e sui compomenti di finitura.
 # Permette all'utente di creare nuovi oggetti inserendoli
-# 
+# visualizzare tutto il catalogo, modificare gli attributi di un elemento cercandolo per codice ed eliminarlo dopo conferma. 
+# Usa il polimorfismo chiamando .descrivi() sugli oggetti senza sapere di che tipo siano. 
 # importiamo tutte le classi da models.py per poter istanziare gli oggetti
 from models import Giacca, Pantalone, Gilet, Cravatta, Papillon, Pochette
 
