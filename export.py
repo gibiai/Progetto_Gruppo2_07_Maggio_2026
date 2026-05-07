@@ -8,7 +8,7 @@ from generatore import vendite
 def esporta_csv(filepath = "260507_lezione_17/vendite.csv"):
 
     if not vendite:
-        print("Nessun dato da esportare ⚠️\nGenera prima le vendite.\n")
+        print("/!\ Nessun dato da esportare\n(i) Genera prima le vendite.\n")
         return
     
     # Colonne del CSV
@@ -42,4 +42,4 @@ def esporta_csv(filepath = "260507_lezione_17/vendite.csv"):
             })
     
     # Print di conferma
-    print(f"--- Esportato ✅ ---\nPath: {filepath}\nRighe: ({len(vendite)})")
+    print(f"--- ✔ Esportato  ---\nPath: {filepath}\nRighe: ({len(vendite)})")
