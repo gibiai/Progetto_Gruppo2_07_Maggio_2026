@@ -4,6 +4,7 @@ from generatore import genera_dati
 from analytics import analizza_tutti, analizza_per_tipo, analizza_per_tipo_e_personalizzazione
 from export import esporta_csv
 
+# liste condivise tra tutti i moduli, passate come argomento alle funzioni
 capi = []
 finiture = []
 
@@ -28,12 +29,11 @@ def menu_analisi():
         print("Scelta non valida.")
 
 def menu():
-    # opzione B: popola automaticamente all'avvio
     genera_dati(capi, finiture)
     print("Dati iniziali generati automaticamente.")
 
     while True:
-        print("\n===== SARTORIA ELEGANTE =====")
+        print("\n== SARTORIA ELEGANTE ==") # menu sartoria in cui si può creare un capo, analizzarlo ed esportarlo
         print("1. Crea capo")
         print("2. Modifica capo")
         print("3. Elimina capo")
@@ -45,17 +45,17 @@ def menu():
         scelta = input("\nScelta: ").strip()
 
         if scelta == "1":
-            crea_capo(capi, finiture)
+            crea_capo(capi, finiture)  # aggiunge un nuovo capo scelto dall'utente
         elif scelta == "2":
-            modifica_capo(capi, finiture)
+            modifica_capo(capi, finiture)  # modifica un capo esistente tramite codice
         elif scelta == "3":
-            elimina_capo(capi, finiture)
+            elimina_capo(capi, finiture)  # rimuove un capo dalla lista tramite codice
         elif scelta == "4":
-            genera_dati(capi, finiture)
+            genera_dati(capi, finiture) # genera e aggiunge nuovi dati casuali
         elif scelta == "5":
-            menu_analisi()
+            menu_analisi()  # entra nel sottomenu analisi
         elif scelta == "6":
-            esporta_csv(capi, finiture)
+            esporta_csv(capi, finiture) # scrive le liste su file vendite.csv
         elif scelta == "0":
             print("Arrivederci!")
             break
