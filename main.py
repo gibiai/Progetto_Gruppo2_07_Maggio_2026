@@ -5,8 +5,8 @@ from analytics import analizza_tutti, analizza_per_tipo, analizza_per_tipo_e_per
 from export import esporta_csv
 
 # liste condivise tra tutti i moduli, passate come argomento alle funzioni
-capi = []
-finiture = []
+lista_capi = []
+lista_componenti = []
 
 def menu_analisi():
     print("\n--- ANALISI ---")
@@ -18,18 +18,18 @@ def menu_analisi():
     scelta = input("\nScelta: ").strip()
 
     if scelta == "1":
-        analizza_tutti(capi)
+        analizza_tutti(lista_capi)
     elif scelta == "2":
-        analizza_per_tipo(capi)
+        analizza_per_tipo(lista_capi)
     elif scelta == "3":
-        analizza_per_tipo_e_personalizzazione(capi)
+        analizza_per_tipo_e_personalizzazione(lista_capi)
     elif scelta == "0":
         return
     else:
         print("Scelta non valida.")
 
 def menu():
-    genera_dati(capi, finiture)
+    genera_dati(lista_capi, lista_componenti)
     print("Dati iniziali generati automaticamente.")
 
     while True:
@@ -45,17 +45,17 @@ def menu():
         scelta = input("\nScelta: ").strip()
 
         if scelta == "1":
-            crea_capo(capi, finiture)  # aggiunge un nuovo capo scelto dall'utente
+            crea_capo(lista_capi, lista_componenti)  # aggiunge un nuovo capo scelto dall'utente
         elif scelta == "2":
-            modifica_capo(capi, finiture)  # modifica un capo esistente tramite codice
+            modifica_capo(lista_capi, lista_componenti)  # modifica un capo esistente tramite codice
         elif scelta == "3":
-            elimina_capo(capi, finiture)  # rimuove un capo dalla lista tramite codice
+            elimina_capo(lista_capi, lista_componenti)  # rimuove un capo dalla lista tramite codice
         elif scelta == "4":
-            genera_dati(capi, finiture) # genera e aggiunge nuovi dati casuali
+            genera_dati(lista_capi, lista_componenti) # genera e aggiunge nuovi dati casuali
         elif scelta == "5":
             menu_analisi()  # entra nel sottomenu analisi
         elif scelta == "6":
-            esporta_csv(capi, finiture) # scrive le liste su file vendite.csv
+            esporta_csv(lista_capi, lista_componenti) # scrive le liste su file vendite.csv
         elif scelta == "0":
             print("Arrivederci!")
             break
