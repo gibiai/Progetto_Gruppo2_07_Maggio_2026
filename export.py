@@ -5,7 +5,8 @@ import os
 from generatore import vendite
 
 # Scrive vendite[] su file CSV. Calcola fatturato al momento dell'export.
-def esporta_csv(filepath = "260507_lezione_17/vendite.csv"):
+percorso = os.getcwd()
+def esporta_csv(filepath = percorso + "/vendite.csv"):
 
     if not vendite:
         print("/!\ Nessun dato da esportare\n(i) Genera prima le vendite.\n")
