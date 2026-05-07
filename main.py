@@ -1,5 +1,5 @@
-from models import *
-from crud import crea_capo, modifica_capo, elimina_capo
+from models import Giacca, Pantalone, Gilet, Cravatta, Papillon, Pochette
+from crud import crea_capo, crea_componente, modifica_capo, elimina_capo, visualizza_tutti
 from generatore import genera_dati
 from analytics import analizza_tutti, analizza_per_tipo, analizza_per_tipo_e_personalizzazione, analizza_attributi
 from export import esporta_csv
@@ -15,29 +15,23 @@ def menu_analisi(): # Sottomenu dedicato alle analisi, richiamato dal menu princ
     print("3. Analizza per tipo e personalizzazione")
     print("4. Analizza attributi (colori, tessuti, taglie)")
     print("0. Torna indietro")
-
     scelta = input("\nScelta: ").strip()
 
     if scelta == "1":
         analizza_tutti()
-
     elif scelta == "2":
         print("\nTipi disponibili: Giacca, Pantalone, Gilet, Cravatta, Papillon, Pochette")
         tipo = input("Inserisci tipo: ").strip()
         analizza_per_tipo(tipo)
-
     elif scelta == "3":
         print("\nTipi disponibili: Giacca, Pantalone, Gilet, Cravatta, Papillon, Pochette")
-        tipo  = input("Inserisci tipo: ").strip()
+        tipo   = input("Inserisci tipo: ").strip()
         valore = input("Inserisci valore personalizzazione: ").strip()
         analizza_per_tipo_e_personalizzazione(lista_capi, lista_componenti, tipo, valore)
-
     elif scelta == "4":
         analizza_attributi(lista_capi, lista_componenti)
-
     elif scelta == "0":
         return
-
     else:
         print("Scelta non valida.")
 
@@ -48,27 +42,32 @@ def menu():
     while True:
         print("\n== SARTORIA ELEGANTE ==") # menu sartoria in cui si può creare un capo, analizzarlo ed esportarlo
         print("1. Crea capo")
-        print("2. Modifica capo")
-        print("3. Elimina capo")
-        print("4. Genera nuovi dati")
-        print("5. Analisi")
-        print("6. Esporta CSV")
+        print("2. Crea componente")
+        print("3. Modifica capo")
+        print("4. Elimina capo")
+        print("5. Visualizza catalogo")
+        print("6. Genera nuovi dati")
+        print("7. Analisi")
+        print("8. Esporta CSV")
         print("0. Esci")
-
         scelta = input("\nScelta: ").strip()
 
         if scelta == "1":
-            crea_capo(lista_capi, lista_componenti)  # aggiunge un nuovo capo scelto dall'utente
+            crea_capo(lista_capi)                                # aggiunge un nuovo capo scelto dall'utente
         elif scelta == "2":
-            modifica_capo(lista_capi, lista_componenti)  # modifica un capo esistente tramite codice
+            crea_componente(lista_componenti)                    # aggiunge un nuovo componente scelto dall'utente
         elif scelta == "3":
-            elimina_capo(lista_capi, lista_componenti)  # rimuove un capo dalla lista tramite codice
+            modifica_capo(lista_capi, lista_componenti)          # modifica un capo esistente tramite codice
         elif scelta == "4":
-            genera_dati(lista_capi, lista_componenti) # genera e aggiunge nuovi dati casuali
+            elimina_capo(lista_capi, lista_componenti)           # rimuove un capo dalla lista tramite codice
         elif scelta == "5":
-            menu_analisi()  # entra nel sottomenu analisi
+            visualizza_tutti(lista_capi, lista_componenti)       # stampa tutto il catalogo
         elif scelta == "6":
-            esporta_csv(lista_capi, lista_componenti) # scrive le liste su file vendite.csv
+            genera_dati(lista_capi, lista_componenti)            # genera e aggiunge nuovi dati casuali
+        elif scelta == "7":
+            menu_analisi()                                       # entra nel sottomenu analisi
+        elif scelta == "8":
+            esporta_csv()                                        # scrive le vendite su file vendite.csv
         elif scelta == "0":
             print("Arrivederci!")
             break
